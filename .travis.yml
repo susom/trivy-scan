@@ -1,0 +1,14 @@
+language: minimal
+services:
+    - docker
+stages:
+  - name: deploy
+    if: branch = master AND type = push
+jobs:
+  include:
+    - stage: deploy
+      script:
+        - echo "$DOCKER_API_TOKEN" | docker login -u "$DOCKER_USERNAME" --password-stdin
+        - export TRIVY_REPO=somrit/trivy-scan
+        - docker build -f trivy/Dockerfile -t $TRIVY_REPO:build-$TRAVIS_BUILD_NUMBER .
+        - docker push $TRIVY_REPO
