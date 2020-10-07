@@ -6,7 +6,7 @@ RUN apk add curl && \
    chmod +x /bin/kubectl
 
 # Install trivy
-RUN curl -sfL https://raw.githubusercontent.com/kyeswanth/trivy/master/contrib/install.sh | sh -s -- -b /usr/local/bin
+RUN curl -sfL https://raw.githubusercontent.com/aquasecurity/trivy/master/contrib/install.sh | sh -s -- -b /usr/local/bin
 
 # Install bash,jq
 RUN apk add bash && apk add jq
