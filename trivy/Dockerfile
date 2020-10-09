@@ -19,3 +19,6 @@ RUN mkdir -p /root/.docker scripts
 
 # Change directory
 WORKDIR /scripts
+
+# Copy script
+COPY /trivy/trivy-script.sh /scripts

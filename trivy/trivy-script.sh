@@ -25,7 +25,7 @@ function trivy_scan(){
   high_count=$(cat trivy_report.json | jq '.[]' | jq '.Vulnerabilities[] | select(.Severity == "HIGH") | length' | wc -l)
   critical_count=$(cat trivy_report.json | jq '.[]' | jq '.Vulnerabilities[] | select(.Severity == "CRITICAL") | length' | wc -l)
 
-  if [ -s /trivy_report.log ]; then
+  if [ -s trivy_report.log ]; then
     # Trigger slack alert if vulnerabilities found
     curl -F file=@trivy_report.log -F "title=Trivy detected $high_count HIGH and $critical_count CRITICAL vulnerabilities in $KUBE_CONTEXT on `date`" -F channels=$TRIVY_SLACK_CHANNEL_ID -H "Authorization: Bearer `$TRIVY_SLACK_TOKEN`" https://slack.com/api/files.upload
   fi
