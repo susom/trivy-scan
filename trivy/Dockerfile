@@ -17,5 +17,8 @@ RUN apk add --update docker openrc && rc-update add docker boot
 # Create directories
 RUN mkdir -p /root/.docker scripts
 
-# Copy script to directory
-COPY trivy-script.sh /scripts/
+# Change directory
+WORKDIR /scripts
+
+# Copy script
+COPY /trivy/trivy-script.sh /scripts
