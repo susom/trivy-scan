@@ -1,4 +1,4 @@
-FROM alpine:3.12
+FROM alpine
 
 # Install curl,kubectl
 RUN apk add curl && \
