@@ -13,12 +13,12 @@ function trivy_scan(){
     # Get image name from SHA ID
     image_name=$(docker inspect "${image_sha_id}" | jq -r '.[0].RepoTags | first')
     # Run trivy to fetch high,critical vulnerability details for each image
-    trivy --exit-code 1 --quiet --severity HIGH,CRITICAL "${image_name}"
+    trivy --exit-code 1 --quiet --ignore-unfixed --severity HIGH,CRITICAL "${image_name}"
     EXITCODE=$?
     if [ $EXITCODE -eq 1 ]; then
       # Write vulnerability details to log file
-      trivy --quiet --severity HIGH,CRITICAL "${image_name}" >> trivy_report.log
-      trivy --quiet --severity HIGH,CRITICAL -f json "${image_name}" >> trivy_report.json
+      trivy --quiet --ignore-unfixed --severity HIGH,CRITICAL "${image_name}" >> trivy_report.log
+      trivy --quiet --ignore-unfixed --severity HIGH,CRITICAL -f json "${image_name}" >> trivy_report.json
     fi
   done
 
