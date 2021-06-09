@@ -1,8 +1,8 @@
-FROM alpine:latest@sha256:e103c1b4bf019dc290bcc7aca538dc2bf7a9d0fc836e186f5fa34945c5168310
-# "Created": "2021-03-31T20:10:06.934368604Z" , "Version":"3.13.4"
+FROM alpine:latest@sha256:def822f9851ca422481ec6fee59a9966f12b351c62ccb9aca841526ffaa9f748
+# "Created": "2021-04-14T19:19:39.643236135Z" , "Version":"3.13.5"
 
-# FROM alpine:latest@sha256:a295107679b0d92cb70145fc18fb53c76e79fceed7e1cf10ed763c7c102c5ebe
-# "Created": "2021-02-24T20:20:03.645833664Z" , "Version":"3.12.4"
+# FROM alpine:latest@sha256:e103c1b4bf019dc290bcc7aca538dc2bf7a9d0fc836e186f5fa34945c5168310
+# "Created": "2021-03-31T20:10:06.934368604Z" , "Version":"3.13.4"
 
 # Install curl,kubectl
 RUN apk add curl && \
