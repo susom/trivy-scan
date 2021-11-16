@@ -1,5 +1,5 @@
-FROM alpine:3.14.3@sha256:0a97eee8041e2b6c0e65abb2700b0705d0da5525ca69060b9e0bde8a3d17afdb
-# "Created": "2021-11-12T17:19:45.079013213Z"
+FROM alpine:latest@sha256:0a97eee8041e2b6c0e65abb2700b0705d0da5525ca69060b9e0bde8a3d17afdb
+# "Created": "2021-11-12T17:19:45.079013213Z" "Version": "3.14.3"
 
 # Install curl,kubectl
 RUN apk add curl && \
@@ -22,4 +22,4 @@ RUN mkdir -p /root/.docker scripts
 WORKDIR /scripts
 
 # Copy script
-COPY /trivy/trivy-script.sh /scripts
+COPY trivy-script.sh /scripts
