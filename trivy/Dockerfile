@@ -1,4 +1,4 @@
-FROM alpine:latest@sha256:0a97eee8041e2b6c0e65abb2700b0705d0da5525ca69060b9e0bde8a3d17afdb
+FROM alpine:latest@sha256:5e604d3358ab7b6b734402ce2e19ddd822a354dc14843f34d36c603521dbb4f9
 # "Created": "2021-11-12T17:19:45.079013213Z" "Version": "3.14.3"
 
 # Install curl,kubectl
